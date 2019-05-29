@@ -5,19 +5,25 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        info: ''
+        login: false,
+        username: '',
     },
     mutations: {
-        update(state) {
-            state.info = '哈哈'
+        login(state, obj) {
+            state.login = true
+            state.username = obj
         },
-        subTransmit(state, obj) {
-            console.log(state + "---" + obj)
+        exit(state) {
+            state.login = false
+            state.username = ''
         }
     },
     getters: {
-        optInfo: function (state) {
-            return "从getter中获取的" + state.info
+        loginStatus: function (state) {
+            return state.login
+        },
+        currentName: function (state) {
+            return state.username
         }
     }
 })

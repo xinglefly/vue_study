@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-table border stripe :data="goodlist" style="width:100%">
-      <el-table-column prop="id" label="ID" style="width:180"></el-table-column>
-      <el-table-column prop="type" label="类型" style="width:180"></el-table-column>
-      <el-table-column prop="name" label="名称" style="width:180"></el-table-column>
+    <el-table border stripe :data="goodlist">
+      <el-table-column prop="id" label="ID"></el-table-column>
+      <el-table-column prop="type" label="类型"></el-table-column>
+      <el-table-column prop="name" label="名称"></el-table-column>
     </el-table>
   </div>
 </template>
@@ -23,5 +23,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+div {
+  padding: 0 20px;
+}
+.el-table--border,
+.el-table--group {
+  border: 1px solid #ebeef5;
+  width: 100%;
+}
 </style>

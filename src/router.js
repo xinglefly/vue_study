@@ -15,7 +15,7 @@ const router = new VueRouter({
       component: account,
       children: [
         { path: 'login', component: login },
-        { path: 'register', component: register },      
+        { path: 'register', component: register },
       ]
     },
     { path: '/goodList', component: goodList },

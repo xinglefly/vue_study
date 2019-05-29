@@ -1,15 +1,19 @@
 <template>
   <div>
-    <el-input v-model="name" size="medium" placeholder="请输入用户名"></el-input>
-    <el-input v-model="password" size="medium" show-password placeholder="请输入密码"></el-input>
-    <el-button type="primary" round @click="login">主要按钮</el-button>
+    <div>
+      <el-input v-model="name" placeholder="请输入用户名"></el-input>
+    </div>
+    <div>
+      <el-input v-model="password" show-password placeholder="请输入密码"></el-input>
+    </div>
+    <div>
+      <el-button type="primary" round @click="login">登录</el-button>
+    </div>
   </div>
 </template>
 
 
 <script>
-
-
 export default {
   data() {
     return {
@@ -25,22 +29,21 @@ export default {
       }
       if (this.name == "admin" && this.password == "1") {
         alert("登录成功");
-        this.$emit("func", true);
-        // this.$router.push({ path: "welcome" });
+        // this.$emit("func", true);
+        this.$store.commit("login", this.name);
+        this.$router.push({ path: "/welcome" });
         return;
       }
     }
-  },
-
+  }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 div {
-  margin-top: 15px;
+  margin: 5px;
 }
-el-input {
-  width: 130px;
-  margin-bottom: 10px;
+.el-input {
+  width: 200px;
 }
 </style>
