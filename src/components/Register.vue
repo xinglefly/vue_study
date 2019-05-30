@@ -3,6 +3,7 @@
     注册功能
 
     <p>test</p>
+    <p>test2</p>
     </div>
 </template>
 <script>
