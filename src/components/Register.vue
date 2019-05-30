@@ -1,5 +1,9 @@
 <template>
-  <div>注册功能</div>
+  <div>
+    注册功能
+
+    <p>test</p>
+    </div>
 </template>
 <script>
 export default {};

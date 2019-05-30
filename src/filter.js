@@ -5,7 +5,7 @@ const nameFilter = Vue.filter('nameFilter', function(msg, args){
 })
 
 
-const dateFormate = Vue.filter('dateFormate',function(dataStr, pattern){
+const dateFormat = Vue.filter('dateFormate',function(dataStr, pattern){
     let dt = new Date(dataStr)
 
     let y = dt.getFullYear().toString().padStart(2, '0')
@@ -21,4 +21,4 @@ const dateFormate = Vue.filter('dateFormate',function(dataStr, pattern){
     }
 })
 
-export default [nameFilter,dateFormate]
+export default [nameFilter,dateFormat]
