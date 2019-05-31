@@ -47,55 +47,27 @@ import Vue from "vue";
 
 //定义全局指令
 Vue.directive("focus", {
-  inserted: function(el) {
-    // el.focus();
-    el.querySelector("input").focus();
-  },
+  inserted: el => el.querySelector("input").focus()
 });
 
 //定义全局指令颜色
 Vue.directive("color", {
-  bind: function(el, binding) {
-    // console.log("-->" + el, binding);
-    el.style.color = binding.value;
-  }
+  bind: (el, binding) => (el.style.color = binding.value)
 });
 
-//定义全局过滤器
-// Vue.filter('nameFilter', function(msg, args){
-//     return msg.replace(/张/g, args)
-// })
-
-// Vue.filter('dateFormate',function(dataStr, pattern){
-//     let dt = new Date(dataStr)
-
-//     let y = dt.getFullYear().toString().padStart(2, '0')
-//     let m = dt.getMonth().toString().padStart(2, '0')
-//     let d = dt.getDate().toString().padStart(2, '0')
-//     if (pattern && pattern.toLowercase() == "yyyy-mm-dd") {
-//         return `${y}-${m}-${d}`
-//     } else {
-//         let h = dt.getHours().toString().padStart(2, '0')
-//         let mm = dt.getMinutes().toString().padStart(2, '0')
-//         let ss = dt.getSeconds().toString().padStart(2, '0')
-//         return `${y}-${m}-${d} ${h}:${mm}:${ss}`
-//     }
-// })
-
 //定义过滤时间
-
 
 export default {
   data() {
     return {
-      id: "",
-      name: "",
-      keywords: "",
+      id: '',
+      name: '',
+      keywords: '',
       users: [
-        { id: 1, name: "张三", cTime: new Date().toLocaleDateString() },
-        { id: 2, name: "李四", cTime: new Date().toLocaleDateString() },
-        { id: 3, name: "王五", cTime: new Date().toLocaleDateString() },
-        { id: 4, name: "王宇轩", cTime: new Date().toLocaleDateString() }
+        { id: 1, name: '张三', cTime: new Date().toLocaleDateString() },
+        { id: 2, name: '李四', cTime: new Date().toLocaleDateString() },
+        { id: 3, name: '王五', cTime: new Date().toLocaleDateString() },
+        { id: 4, name: '王宇轩', cTime: new Date().toLocaleDateString() }
       ]
     };
   },

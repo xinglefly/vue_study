@@ -1,7 +1,7 @@
 import VueRouter from "vue-router";
 
 import account from "./components/Account";
-import goodList from "./components/Goodlist"
+import goodList from "./components/GoodList"
 
 import login from "./components/Login";
 import register from "./components/Register"
