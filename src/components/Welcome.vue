@@ -4,7 +4,7 @@
 
     <div class="add">
       <el-input v-model="id" placeholder="请输入学籍"></el-input>
-      <el-input v-model="name" placeholder="请输入姓名" @keyup.enter="add"></el-input>
+      <el-input v-model="name" placeholder="请输入姓名" @keyup.enter.native="add"></el-input>
       <el-button type="primary" @click="add">添加</el-button>
       <label class="search">
         搜索名称关键字：
@@ -29,7 +29,7 @@
         <el-table-column label="日期">
           <template slot-scope="scope">
             <i class="el-icon-time"></i>
-            <span style="margin-left: 10px">{{ scope.row.cTime | dateFormate }}</span>
+            <span style="margin-left: 10px">{{ scope.row.cTime | dateFormat }}</span>
           </template>
         </el-table-column>
         <el-table-column label="操作">
@@ -47,12 +47,10 @@ import Vue from "vue";
 
 //定义全局指令
 Vue.directive("focus", {
-  bind: function(el) {},
   inserted: function(el) {
     // el.focus();
     el.querySelector("input").focus();
   },
-  update: function(el) {}
 });
 
 //定义全局指令颜色

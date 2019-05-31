@@ -5,7 +5,7 @@ const nameFilter = Vue.filter('nameFilter', function(msg, args){
 })
 
 
-const dateFormat = Vue.filter('dateFormate',function(dataStr, pattern){
+const dateFormat = Vue.filter('dateFormat',function(dataStr, pattern){
     let dt = new Date(dataStr)
 
     let y = dt.getFullYear().toString().padStart(2, '0')

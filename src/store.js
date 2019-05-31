@@ -19,12 +19,8 @@ const store = new Vuex.Store({
         }
     },
     getters: {
-        loginStatus: function (state) {
-            return state.login
-        },
-        currentName: function (state) {
-            return state.username
-        }
+        loginStatus: state => state.login,
+        currentName: state => state.username
     }
 })
 
