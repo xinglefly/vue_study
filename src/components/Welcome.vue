@@ -43,7 +43,8 @@
 </template>
 
 <script>
-import Vue from "vue";
+import Vue from "vue"
+// import EventBus from './EventBus'
 
 //定义全局指令
 Vue.directive("focus", {
@@ -70,6 +71,14 @@ export default {
         { id: 4, name: '王宇轩', cTime: new Date().toLocaleDateString() }
       ]
     };
+  },
+  created() {
+
+  },
+  mounted() {
+    // EventBus.$on('LOGIN', (payload) => {
+    //   console.log('test->', payload)
+    // })
   },
   methods: {
     add() {
@@ -100,6 +109,9 @@ export default {
           return item;
         }
       });
+    },
+    getEventBus() {
+
     }
   }
 };

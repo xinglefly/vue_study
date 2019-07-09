@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import router from "./router";
 import store from "./store";
-import { nameFilter,dateFormat } from "./filter";
+import { nameFilter, dateFormat } from "./filter";
 
 Vue.config.productionTip = false
 Vue.config.devtools = true
@@ -40,7 +40,7 @@ new Vue({
   render: h => h(App),
   router,
   store,
-  filters:[
+  filters: [
     nameFilter,
     dateFormat
   ]

@@ -2,9 +2,24 @@
   <div id="app">
     <app-header></app-header>
     <div class="option" v-show="this.$store.state.login">
-      <p class="current">当前用户： {{$store.getters.currentName}}</p>
+      <p class="current">当前用户： {{$store.getters.currentName}} {{name}}</p>
       <p class="exited" @click="exit">退出</p>
+       
     </div>
+   
+    <div class="test">
+      <!-- jjjj{{parentCount}}
+      {{count}}
+      <p>{{countAlias}}</p>
+      <p>{{countPlusLocalState}}</p>-->
+    </div>
+
+    <SlotDemo>
+      <p>default slot</p>
+      <p slot="title">title slot1</p>
+      <p slot="title">title slot2</p>
+      <p slot="item" slot-scope="props">item slot-scope {{ props }}</p>
+    </SlotDemo>
 
     <router-link class="link" to="/account">
       <label v-show="!$store.getters.loginStatus">账户管理</label>
@@ -17,21 +32,69 @@
 </template>
 
 <script>
-import header from "./components/Header";
+import header from "./components/Header"
+import Slot from "./components/Slot"
+// import { mapState } from 'vuex'
+import EventBus from './components/EventBus'
 
 export default {
-  name: "app",
+  name: 'app',
   data() {
-    return {};
+    return {
+      localCount: 5,
+      name: ''
+    };
   },
   methods: {
     exit() {
-      this.$store.commit("exit");
-      this.$router.push({ path: "/account" });
+      this.$store.commit('exit');
+      this.$router.push({ path: '/account' });
     }
   },
   components: {
-    "app-header": header
+    'app-header': header,
+    SlotDemo: Slot,
+  },
+  beforeCreate() {
+    console.log('parent beforeCreate')
+  },
+  created() {
+    console.log('parent Created')
+  },
+  beforeMount() {
+    console.log('parent beforeMount')
+  },
+  mounted() {
+    console.log('parent mounted')
+    EventBus.$on('LOGIN', msg => {
+      console.log('mounted', msg)
+      this.name = msg
+    })
+  },
+  beforeUpdate() {
+
+  },
+  //最基本使用
+  // computed: {
+  //   count() {
+  //     return this.$store.state.count
+  //   }
+  // }
+  //mapState使用
+  // computed: mapState({
+  //   count: state => state.count,
+  //   countAlias: 'count',
+  //   countPlusLocalState(state){
+  //     return state.count + this.localCount
+  //   }
+  // })
+  //计算属性名称和state下节点名称相同
+  // computed:mapState([
+  //   'count'
+  // ])
+  //使用将多个对象合并到一起
+  computed: {
+    
   }
 };
 </script>
@@ -81,4 +144,7 @@ $font: 20px;
   }
 }
 
+.test {
+  display: none;
+}
 </style>

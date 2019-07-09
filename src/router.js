@@ -18,8 +18,16 @@ const router = new VueRouter({
         { path: 'register', component: register },
       ]
     },
-    { path: '/goodList', component: goodList },
-    { path: '/welcome', component: welcome },
+    {
+      path: '/goodList',
+      component: goodList,
+      props: {
+        id: 'chenzx8',
+        username: 'xingle'
+      }
+    },
+    // { path: '/welcome', component: welcome },
+    { path: '/welcome', name: 'welcome', component: welcome },
   ],
   mode: 'history'
 })

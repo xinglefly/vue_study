@@ -5,11 +5,13 @@
       <el-table-column prop="type" label="类型"></el-table-column>
       <el-table-column prop="name" label="名称"></el-table-column>
     </el-table>
+    <p>{{ id }}  {{ username }}</p>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['id', 'username'],
   data() {
     return {
       goodlist: [

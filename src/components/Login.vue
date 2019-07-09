@@ -14,24 +14,32 @@
 
 
 <script>
+import EventBus from './EventBus'
+import { LOGIN_INFO } from '../constant.js'
+
 export default {
   data() {
     return {
-      name: "",
-      password: ""
+      name: '',
+      password: ''
     };
   },
   methods: {
     login() {
-      if (this.name == "" || this.password == "") {
+      if (this.name === '' || this.password === '') {
         alert("用户名和密码不能为空");
         return;
       }
-      if (this.name == "admin" && this.password == "1") {
+      if (this.name === 'admin' && this.password === '1') {
         alert("登录成功");
         // this.$emit("func", true);
-        this.$store.commit("login", this.name);
-        this.$router.push({ path: "/welcome" });
+        this.$store.commit(LOGIN_INFO, this.name);
+        // this.$router.push({ path: "/welcome" });
+        console.log('login->', this.name, this.password)
+        this.$router.push({
+          name: 'welcome'
+        });
+        EventBus.$emit('LOGIN', this.name)
         return;
       }
     }
