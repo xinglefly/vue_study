@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: 'Arvo', serif;
+    }
+
+    /*可以为父标签设定一个高度, 这里就为父元素设置了高度防止了浮动影响和塌陷的问题*/
+    /* #box1 {
+        height: 100px;
+    }
+    #box1 div {
+        float: left;
+        width: 100px;
+        background: red;
+        height: 100px;
+    }
+    #box2 {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        background: yellow;
+    } */
+
+    /*这是外墙*/
+    /* #box1 div {
+      float: left;
+      width: 100px;
+      background: red;
+      height: 100px;
+    }
+
+    
+    #wall {
+      height: 0;
+      clear: both;
+    }
+
+    #box2 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      background: yellow;
+    } */
+
+    /* #box1>#float {
+      float: left;
+      width: 100px;
+      background: red;
+      height: 100px;
+    }
+
+    #wall {
+      height: 0;
+      clear: both;
+    }
+
+    #box2 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      background: yellow;
+    } */
+
+    /*这里设置了overflow就会防止因为盒子浮动*/
+    /* #box1 {
+      overflow: hidden;
+    }
+
+    #box1 #float {
+      float: left;
+      width: 100px;
+      background: red;
+      height: 100px;
+    }
+
+    #box2 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      background: yellow;
+    } */
+
+    #box1::after {
+      display: block;
+      clear: both;
+      content: "";
+      visibility: hidden;
+      height: 0
+    }
+
+    #box1 #float {
+      float: left;
+      width: 100px;
+      background: red;
+      height: 100px;
+    }
+
+    #box2 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      background: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1.固定高度法 -->
+  <!-- <div id="box1">
+    <div></div>
+  </div>
+  <div id="box2"></div> -->
+
+
+  <!-- 2.外墙法 -->
+  <!-- <div id="box1">
+    <div></div>
+  </div>
+  <div id="wall"></div>
+  <div id="box2"></div> -->
+
+  <!-- 3.内墙法 -->
+  <!-- <div id="box1">
+    <div id="float"></div>
+    <div id="wall"></div>
+  </div>
+  <div id="box2"></div> -->
+
+  <!-- 4.overflow清除法 -->
+  <!-- <div id="box1">
+    <div id="float"></div>
+  </div>
+  <div id="box2"></div> -->
+
+  <!-- css3的伪类选择器添加一个外墙 -->
+  <div id="box1">
+    <div id="float"></div>
+  </div>
+  <div id="box2"></div>
+  <p>字体样式展示</p>
+</body>
+<script>
+  var person = {
+    age: 0,
+    name: ''
+  }
+
+  // var p = new Person(10, 'xingle')
+  
+  console.log(person.hasOwnProperty('age'))
+  console.log(person.hasOwnProperty('toString'))
+
+</script>
+
+</html>

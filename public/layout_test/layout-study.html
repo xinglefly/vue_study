@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+
+    /* p {
+      display: inline-block;
+    } */
+
+    /*还是出出现换行，因为代码中的div加入了空格和换行被HTML当做空格文本，跟inline盒混排的缘故，需要把div都放在一行就没有空格了*/
+    .inner {
+      width: 32%;
+      height: 100px;
+      display: inline-block;
+      border: 1px solid black;
+    }
+
+    /*一个变通的方案是，改变 outer 中的字号为 0*/
+    /* .outer{
+      font-size: 0;
+    } */
+    /*解决旧版本浏览器的问题*/
+    .outer {
+      width: 401px;
+    }
+
+    .inner:last-child {
+      margin-right: -5px;
+    }
+
+    /*自适应宽度*/
+    .outer2 {
+      width: 100%;
+    }
+
+    /* 这样完全解决不了自适应宽度
+    .fixed{
+      width: 200px;
+    }
+    .fixed, .auto{
+       height: 300px;
+       outline: solid 1px black;      
+    } */
+    .outer2 {
+      border: solid 1px red;
+    }
+
+    .fixed {
+      display: inline-block;
+      vertical-align: top;
+      border: solid 1px hotpink;
+    }
+
+    .auto {
+      margin-left: -200px;
+      padding-left: 200px;
+      height: 200px;
+      box-sizing: border-box;
+      width: 100%;
+      display: inline-block;
+      border: solid 1px black;
+      vertical-align: top;
+    }
+
+    .parent {
+      display: flex;
+      margin: 0 auto;
+      width: 300px;
+      height: 300px;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      border: solid 1px black;
+    }
+
+    .child {
+      width: 100px;
+      height: 100px;
+      border: solid 1px red;
+    }
+
+    .parent1 {
+      display: flex;
+      width: 300px;
+      justify-content: center;
+      align-content: center;
+      align-items: stretch;
+    }
+
+    .child1 {
+      width: 100px;
+      outline: solid 1px;
+    }
+
+    .parent2{
+      display: flex;
+      width: 600px;
+      height: 200px;
+      background-color: blueviolet;
+    }
+    .child2{
+      width: 100px;
+      background-color: red;
+    }
+
+    .child3{
+      width: 100px;
+      flex: 1;
+      outline: solid 1px;
+      background-color: aqua;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="inner"></div>
+    <div class="inner"></div>
+    <div class="inner"></div>
+  </div>
+  <!-- <p>hello vue</p>
+  <p>component: vuex, vuerouter</p> -->
+
+  <!--自适应填满-->
+  <div class="outer2">
+    <div class="fixed"></div>
+    <div class="auto"></div>
+  </div>
+
+  <!--flex 垂直居中-->
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+
+  <!--两列等高-->
+  <div class="parent1">
+    <div class="child1" style="height: 100px"></div>
+    <div class="child1"></div>
+  </div>
+  <div class="parent1">
+    <div class="child1"></div>
+    <div class="child1" style="height: 100px"></div>
+  </div>
+
+  <!--自适应宽-->
+  <div class="parent2">
+    <div class="child2"></div>
+    <div class="child3"></div>
+  </div>
+</body>
+
+</html>
