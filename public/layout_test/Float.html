@@ -90,7 +90,7 @@
       background: yellow;
     } */
 
-    #box1::after {
+    /* #box1::after {
       display: block;
       clear: both;
       content: "";
@@ -110,7 +110,40 @@
       height: 100px;
       border: 1px solid #000;
       background: yellow;
+    } */
+
+    header {
+      height: 100px;
+      background-color: purple;
     }
+
+    header h2 {
+      text-align: center;
+      color: white;
+      margin: 0;
+    }
+
+/*溢出时两种方案解决，一种是加overflow ;另一种是伪元素*/
+    div:nth-of-type(1) {
+      background-color: aquamarine;
+      padding: 10px;
+      /* overflow: auto;  */
+      display: flow-root;
+    }
+
+    div:nth-child(1) {
+      float: left;
+      width: 150px;
+      height: 150px;
+      background-color: aqua;
+      border-radius: 5px;
+    }
+
+    /* div:nth-of-type(1)::after {
+      content: "";
+      clear: both;
+      display: block;
+    } */
   </style>
 </head>
 
@@ -143,11 +176,24 @@
   <div id="box2"></div> -->
 
   <!-- css3的伪类选择器添加一个外墙 -->
-  <div id="box1">
+  <!-- <div id="box1">
     <div id="float"></div>
   </div>
   <div id="box2"></div>
-  <p>字体样式展示</p>
+  <p>字体样式展示</p> -->
+
+
+
+  <header>
+    <h2>float wrap</h2>
+  </header>
+
+  <div>
+    <div>float</div>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat
+    vulputate.
+  </div>
+
 </body>
 <script>
   var person = {
@@ -156,7 +202,7 @@
   }
 
   // var p = new Person(10, 'xingle')
-  
+
   console.log(person.hasOwnProperty('age'))
   console.log(person.hasOwnProperty('toString'))
 
